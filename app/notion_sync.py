@@ -29,7 +29,7 @@ def push_game_to_notion(game):
 
 def sync_games():
     # Adjust the URL to match your own Flask API route
-    response = requests.get("https://your-flask-api.onrender.com/games")
+    response = requests.get("https://backlog-m02j.onrender.com/games")
     response.raise_for_status()
     games = response.json()
 
