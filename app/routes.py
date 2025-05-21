@@ -9,9 +9,9 @@ def get_games():
     return jsonify([{
         "id": game.id,
         "title": game.title,
-        "platform": game.platform,
+        #"platform": game.platform,
         "status": game.status,
-        "completed_year": game.completed_year
+        "time_played": game.time_played
     } for game in games])
 
 @app.route("/games", methods=["POST"])
