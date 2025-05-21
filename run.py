@@ -11,7 +11,7 @@ from threading import Thread
 from flask import Flask
 from app.notion_sync import sync_games 
 
-@app.route('/sync-to-notion')
+@app.route('/sync-to-notion', methods=["POST"])
 def sync_to_notion():
     try:
         sync_games()
