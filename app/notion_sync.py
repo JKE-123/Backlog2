@@ -6,26 +6,30 @@ notion = Client(auth=os.environ.get("NOTION_TOKEN"))
 database_id = os.environ.get("NOTION_DATABASE_ID")
 
 def push_game_to_notion(game):
-    notion.pages.create(
-        parent={"database_id": database_id},
-        properties={
-            "Title": {
-                "title": [
-                    {
-                        "text": {
-                            "content": game["name"]
+    try:
+        notion.pages.create(
+            parent={"database_id": database_id},
+            properties={
+                "Title": {
+                    "title": [
+                        {
+                            "text": {
+                                "content": game["name"]
+                            }
                         }
-                    }
-                ]
-            },
-            "Status": {
-                "select": {"name": game["status"]}
-            },
-            "Hours Played": {
-                "number": game.get("hours", 0)
+                    ]
+                },
+                "Status": {
+                    "select": {"name": game.get("status", "Not Started")}
+                },
+                "Hours Played": {
+                    "number": game.get("hours", 0)
+                }
             }
-        }
-    )
+        )
+        print(f'Successfully pushed {game["name"]} to Notion.')
+    except Exception as e:
+        print(f'Failed to push {game["name"]} to Notion: {e}')
 
 def sync_games():
     # Adjust the URL to match your own Flask API route
