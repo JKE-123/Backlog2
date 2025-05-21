@@ -1,11 +1,11 @@
 # app/routes.py
 from flask import request, jsonify
 from app import app, db
-from app.models import Game
+from app.models import Games
 
 @app.route("/games", methods=["GET"])
 def get_games():
-    games = Game.query.all()
+    games = Games.query.all()
     return jsonify([{
         "id": game.id,
         "title": game.title,
