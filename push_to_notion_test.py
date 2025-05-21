@@ -1,13 +1,15 @@
 from notion_client import Client
 import requests
-import os
+# Replace with your actual values
+NOTION_TOKEN = "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"
+DATABASE_ID = "1efd679009c180629c65ecaeaf9ca550"
 
-notion = Client(auth=os.environ.get("NOTION_TOKEN"))
-database_id = os.environ.get("NOTION_DATABASE_ID")
+# Initialize client
+notion = Client(auth=NOTION_TOKEN)
 
 def push_game_to_notion(game):
     notion.pages.create(
-        parent={"database_id": database_id},
+        parent={"database_id": DATABASE_ID},
         properties={
             "Title": {
                 "title": [
@@ -45,3 +47,8 @@ def sync_games():
 
     except Exception as e:
         print(f"❌ Error during Notion sync: {e}")
+
+
+
+sync_games()
+
