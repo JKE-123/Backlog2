@@ -10,6 +10,7 @@ def get_games():
         "id": game.id,
         "title": game.title,
         #"platform": game.platform,
+        #"platform": game.platform,
         "status": game.status,
         "hours_played": game.hours_played
     } for game in games])
