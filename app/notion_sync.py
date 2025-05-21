@@ -36,7 +36,7 @@ def sync_games():
         print(f"Fetched {len(games)} games")
 
         # Example: Push data to Notion
-        push_to_notion(games)
+        push_game_to_notion(games)
         print("✅ Successfully pushed data to Notion")
 
     except Exception as e:
