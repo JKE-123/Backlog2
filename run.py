@@ -14,7 +14,7 @@ from app.notion_sync import sync_games
 @app.route('/sync-to-notion', methods=["POST"])
 def sync_to_notion():
     try:
-        sync_games()
+        sync_games.delay()
         return "Notion sync successful", 200
     except Exception as e:
         print(f"❌ Error during Notion sync: {e}")
