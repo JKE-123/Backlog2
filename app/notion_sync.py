@@ -32,6 +32,12 @@ def sync_games():
     response = requests.get("https://backlog-m02j.onrender.com/games")
     response.raise_for_status()
     games = response.json()
+    try:
+        print(f"Fetched {len(games)} games")
 
-    for game in games:
-        push_game_to_notion(game)
+        # Example: Push data to Notion
+        push_to_notion(games)
+        print("✅ Successfully pushed data to Notion")
+
+    except Exception as e:
+        print(f"❌ Error during Notion sync: {e}")
