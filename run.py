@@ -9,7 +9,7 @@ from app import app, db
 
 from threading import Thread
 from flask import Flask
-from .app.notion_sync import sync_games 
+from app.notion_sync import sync_games 
 
 @app.route('/sync-to-notion')
 def sync_to_notion():
