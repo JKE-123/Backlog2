@@ -44,7 +44,7 @@ def sync_games():
     try:
         logging.info("Starting sync_games")
         games = get_games()
-        logging.info(f"Fetched {games} games")
+        logging.info(f"Fetched {len(games)} games")
 
         for game in games:
             try:
@@ -56,3 +56,4 @@ def sync_games():
 
     except Exception as e:
         logging.critical(f"❌ Error during Notion sync: {e}", exc_info=True)
+
