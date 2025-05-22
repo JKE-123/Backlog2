@@ -2,7 +2,8 @@ import logging
 from notion_client import Client
 import requests
 import os
-from routes import get_games
+from app.routes import get_games
+
 # Replace with your actual values
 NOTION_TOKEN = "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"
 DATABASE_ID = "1efd679009c180629c65ecaeaf9ca550"
