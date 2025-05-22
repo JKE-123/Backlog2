@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "backlog"
+version = "0.1.0"
+description = "Your project description"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+celery = "^5.3.4"
+redis = "^5.0.1"
+python = ">=3.8,<4.0"
+requests = "^2.31.0"
+flask = "^2.0.0" 
+howlongtobeatpy = "^1.0.0"
