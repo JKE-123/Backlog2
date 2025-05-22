@@ -44,7 +44,7 @@ def sync_games():
     try:
         logging.info("Starting sync_games")
         games = get_games()
-        logging.info(f"Fetched {len(games)} games")
+        logging.info(f"Fetched {games} games")
 
         for game in games:
             try:
