@@ -6,14 +6,15 @@ from app.models import Game
 @app.route("/games", methods=["GET"])
 def get_games():
     games = Game.query.all()
-    return jsonify([{
+
+    return[{
         "id": game.id,
         "title": game.title,
         #"platform": game.platform,
         #"platform": game.platform,
         "status": game.status,
         "hours_played": game.hours_played
-    } for game in games])
+    } for game in games]
 
 @app.route("/games", methods=["POST"])
 def add_game():
