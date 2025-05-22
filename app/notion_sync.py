@@ -2,7 +2,7 @@ import logging
 from notion_client import Client
 import requests
 import os
-
+from routes import get_games
 # Replace with your actual values
 NOTION_TOKEN = "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"
 DATABASE_ID = "1efd679009c180629c65ecaeaf9ca550"
@@ -42,9 +42,7 @@ def push_game_to_notion(game):
 def sync_games():
     try:
         logging.info("Starting sync_games")
-        response = requests.get("https://backlog-m02j.onrender.com/games")
-        response.raise_for_status()
-        games = response.json()
+        games = get_games()
         logging.info(f"Fetched {len(games)} games")
 
         for game in games:
